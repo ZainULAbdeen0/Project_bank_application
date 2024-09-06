@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +10,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+:root {
+  --font-inter: "Inter";
+  --font-idm-plex-serif: "IBM Plex Serif";
+}
+
+body {
+   font-family: var(--font-inter), var(--font-ibm-plex-serif);
+ 
+ /* font-family : 'Inter',serif; */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -42,6 +56,11 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #7878a3;
 }
+
+.IBM-plex-font {
+  font-family: 'IBM Plex Serif', serif;
+}
+
 
 @layer utilities {
   .input-class {
