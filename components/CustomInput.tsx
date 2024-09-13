@@ -2,15 +2,23 @@ import React from 'react'
 import { FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from './ui/form'
 import { Input } from "@/components/ui/input";
 import { ITEMS } from '@/constants';
-import { UseFormReturn } from 'react-hook-form';
+import { Control, UseFormReturn, FieldPath } from 'react-hook-form';
+import { authFormSchema } from '@/lib/utils';
+import {z} from "zod"
 
+const formSchema = authFormSchema("Sign-Up")
+interface CustomInput {
+  name: FieldPath<z.infer<typeof formSchema>>,
+  label: string,
+  placeholder: string,
+  control: Control<z.infer<typeof formSchema>>
+}
 
-
-const CustomInput = ({form, placeholder, label}:{placeholder:string , label:string , form:UseFormReturn}) => {
+const CustomInput = ({control, placeholder, label, name} : CustomInput) => {
   return (
     <FormField
-    control={form.control}
-    name="username"
+    control={control}
+    name={name}
     render={({ field }) => (
       <div className='form-item'>
         <FormLabel className='form-label'>  
@@ -20,8 +28,9 @@ const CustomInput = ({form, placeholder, label}:{placeholder:string , label:stri
             <FormControl>
                 <Input
                     placeholder={placeholder}
-                   className='input-class'
-                   {...field} 
+                    type = {name === "password" ? "password" : "text"}
+                    className='input-class'
+                    {...field} 
                 />
             </FormControl>
             <FormMessage className='form-message mt-2'/>
