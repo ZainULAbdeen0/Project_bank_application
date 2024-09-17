@@ -34,13 +34,12 @@ const AuthForm = ({ type }: { type: string }) => {
         const newUser = await signUp(data);
         setUser(newUser);
       }else{
-        const response = await signIn({
+        const response= await signIn({
           email: data.email,
           password: data.password,
-        })
-
+        }) 
         if(response){
-          router.push('/')
+          router.push('/');
         }
       }
     }catch(error){
@@ -86,23 +85,29 @@ const AuthForm = ({ type }: { type: string }) => {
                 <>
                   <div className="flex gap-4">
                     <CustomInput
-                      name="firstname"
+                      name="firstName"
                       control={form.control}
                       label="First Name"
                       placeholder="Eg. John"
                     />
                     <CustomInput
-                      name="lastname"
+                      name="lastName"
                       control={form.control}
                       label="Last Name"
                       placeholder="Eg. Smith"
                     />
                   </div>
                   <CustomInput
-                    name="address"
+                    name="address1"
                     control={form.control}
                     label="Address"
                     placeholder="Enter your specific address"
+                  />
+                  <CustomInput
+                    name="city"
+                    control={form.control}
+                    label="City"
+                    placeholder="Enter your City"
                   />
                   <div className="flex gap-4">
                     <CustomInput
