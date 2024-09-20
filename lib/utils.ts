@@ -209,10 +209,12 @@ export const authFormSchema = (type : string)=> z.object({
     message: "Address must be less than 50 characters",
   }),
   city: type==="Sign-In"? z.string().optional() : z.string(),
-  state: type==="Sign-In"? z.string().optional() : z.string().min(2),
+  state: type==="Sign-In"? z.string().optional() : z.string().length(2,{
+    message: "State must be 2 characters long",
+  }),
   postalCode: type==="Sign-In"? z.string().optional() : z.string().min(3).max(6, {
     message: "Maximum of 6 digits allowed",
   }),
-  dob: type==="Sign-In"? z.string().optional() : z.string().min(2).date(),
+  dateOfBirth: type==="Sign-In"? z.string().optional() : z.string().min(2).date(),
   ssn: type==="Sign-In"? z.string().optional() : z.string().min(2),
 });

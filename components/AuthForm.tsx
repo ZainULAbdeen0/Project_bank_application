@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
+import PlaidLink from "./PlaidLink";
 
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
@@ -29,26 +30,40 @@ const AuthForm = ({ type }: { type: string }) => {
   // 2. Define a submit handler.
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setIsLoading(true);
-    try{
-      if(type === "Sign-Up"){
-        const newUser = await signUp(data);
+    try {
+      if (type === "Sign-Up") {
+        const userData = {
+          firstName: data.firstName!,
+          lastName: data.lastName!,
+          address1: data.address1!,
+          postalCode: data.postalCode!,
+          dateOfBirth: data.dateOfBirth!,
+          city: data.city!,
+          state: data.state!,
+          ssn: data.ssn!,
+          email: data.email!,
+          password: data.password!,
+        };
+
+        const newUser = await signUp(userData);
         setUser(newUser);
-      }else{
-        const response= await signIn({
+        console.log(user)
+
+      } else {
+        const response = await signIn({
           email: data.email,
           password: data.password,
-        }) 
-        if(response){
-          router.push('/');
+        });
+        if (response) {
+          router.push("/");
         }
       }
-    }catch(error){
-      console.log(error)
-    }finally{
+    } catch (error) {
+      console.log(error);
+    } finally {
       setIsLoading(false);
     }
-  }
-
+  };
   return (
     <section className="auth-form">
       <header className="flex flex-col gap-5 md:gap-8">
@@ -76,7 +91,9 @@ const AuthForm = ({ type }: { type: string }) => {
         </div>
       </header>
       {user ? (
-        <div className="flex flex-col gap-4">{/* plaid link */}</div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>
@@ -125,7 +142,7 @@ const AuthForm = ({ type }: { type: string }) => {
                   </div>
                   <div className="flex gap-4">
                     <CustomInput
-                      name="dob"
+                      name="dateOfBirth"
                       control={form.control}
                       label="Date of Birth"
                       placeholder="YYYY-MM-DD"
