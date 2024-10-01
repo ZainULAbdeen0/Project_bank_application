@@ -174,7 +174,7 @@ body {
 
   /* Right sidebar */
   .right-sidebar {
-    @apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 2xl:flex w-[355px] xl:overflow-y-scroll !important;
+    @apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[355px] xl:overflow-y-scroll !important;
   }
 
   .profile-banner {
@@ -359,11 +359,11 @@ body {
   }
 
   .footer_name {
-    @apply flex size-10 items-center justify-center rounded-full bg-gray-200 max-xl:hidden;
+    @apply flex size-10 items-center justify-center rounded-full bg-gray-200 max-2xl:hidden;
   }
 
   .footer_email {
-    @apply flex flex-1 flex-col justify-center max-xl:hidden;
+    @apply flex flex-1 flex-col justify-center max-2xl:hidden;
   }
 
   .footer_name-mobile {
@@ -388,14 +388,14 @@ body {
   }
 
   .sidebar-logo {
-    @apply 2xl:text-26 font-ibm-plex-serif text-[26px] font-bold text-black-1 max-xl:hidden;
+    @apply 2xl:text-26 font-ibm-plex-serif text-[26px] font-bold text-black-1 max-2xl:hidden;
   }
 
   .sidebar-link {
-    @apply flex gap-3 items-center py-1 md:p-3 2xl:p-4 rounded-lg justify-center xl:justify-start;
+    @apply flex gap-3 items-center py-1 md:p-3 2xl:p-4 rounded-lg justify-center 2xl:justify-start;
   }
 
   .sidebar-label {
-    @apply text-16 font-semibold text-black-2 max-xl:hidden;
+    @apply text-16 font-semibold text-black-2 max-2xl:hidden;
   }
 }
