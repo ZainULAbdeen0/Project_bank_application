@@ -19,6 +19,10 @@
     </div>
 </div>
 
+## 🔗 Live Demo
+
+Check out the [live application here](https://horizon-bank-eight.vercel.app/).
+
 ## 📋 <a name="table">Table of Contents</a>
 
 1. 🤖 [Introduction](#introduction)
@@ -31,8 +35,6 @@
 ## <a name="introduction">🤖 Introduction</a>
 
 Horizon is a financial SaaS platform that connects to multiple bank accounts, displays real-time transactions, allows users to transfer money between accounts, and helps manage finances. The platform is built using **Next.js**, **Appwrite**, **Plaid**, **Dwolla**, and other cutting-edge technologies.
-
-Check out the [live application here](https://horizon-bank-eight.vercel.app/). If you have any issues or bugs, please report them in the repository or feel free to contribute.
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -133,3 +135,31 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
+## 📦 Build and Deployment
+
+To build and deploy your application, use the following commands:
+
+1. **Build the application**:
+
+    ```bash
+    npm run build
+    ```
+
+2. **Start the production server**:
+
+    ```bash
+    npm start
+    ```
+
+## 👥 Contributing
+
+We welcome contributions! Please fork this repository, create a new branch, and submit a pull request. Don't forget to star the repository if you find it useful!
+
+## 📧 Contact
+
+If you have any questions or feedback, feel free to reach out to us at [mujtabazain183@gmail.com](mailto:mujtabazain183@gmail.com).
+
+---
+
+Made with ❤️ by [Zain Ul Abdeen](https://github.com/ZainULAbdeen0)
